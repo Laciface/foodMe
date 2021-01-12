@@ -1,40 +1,28 @@
-import React, {useState, createContext, useEffect, Component} from 'react';
+import React, {useState, createContext, useEffect} from 'react';
 import axios from "axios";
 
 
-//export const FoodContext = createContext();
-
-class FoodContext extends Component{
-
-    componentDidMount() {
-    axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
-    .then(resp => console.log(resp))
-}
+export const FoodContext = createContext();
 
 
-//export const FoodProvider = (props) => {
+export const FoodProvider = (props) => {
 
-    // const [categories, setCategories] =  useState([])
-    // const [id, setID] =  useState([])
+    const [data, setData] =  useState([])
 
-    // useEffect(() => {
-    //     fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
-    //     .then(resp => {return resp.json();})
-    // });
-
-    
+    useEffect(() => {
+        axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
+        .then(resp => setData(resp.data.categories))
+    }, []);
 
 
 
-    render(){
     return (
-        <div>Hello</div>
-        // <FoodContext.Provider value={[ categories, setCategories]}>
-        //     {props.children}
-        // </FoodContext.Provider>
+        <FoodContext.Provider value={data}>
+            {props.children}
+        </FoodContext.Provider>
     );
     
 }
-}
+
 
 export default FoodContext
