@@ -13,6 +13,7 @@ const  Category = (props) => {
 }
 
 const CardDiv = styled.div`
+    margin-bottom: 10px;
     display: inline-block;
     padding: 30px;
     /* border-radius:75%;

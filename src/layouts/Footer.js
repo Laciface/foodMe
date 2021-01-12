@@ -9,11 +9,13 @@ const Footer = (props) => {
     )
 }
 
-const FooterSytle = styled.header`
+const FooterSytle = styled.footer`
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 	background: black;
     color: black;
     text-align: center;
-    padding: 10px;
 ` 
 
 const H3 = styled.h3`

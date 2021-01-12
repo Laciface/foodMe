@@ -1,21 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const Navbar = (props) => {
 	return (
         <HeaderSytle>
-			<Button>Home Page</Button>
-            <Button>Categories</Button>
-            <Button>My recipes</Button>
+			<Button><Link to='/HomePage'>Home Page</Link></Button>
+            <Button><Link to='/Categories'>Food Categories</Link></Button>
+            <Button><Link to='/MyReceipt'>MyReceipt</Link></Button>
 		</HeaderSytle>
     )
 }
 
-const Button = styled.button`
+const Button = styled.div`
+    text-decoration: none;
     font-family: 'sans-serif';
     font-size: 1.3rem;
     display: inline-block;
-    border: dotted;
+    border: none;
     border-radius: 5px;
     padding: 7px 10px;
     margin: 20px;
