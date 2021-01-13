@@ -14,7 +14,7 @@ function App(){
       <FoodProvider>
         <Router>
         <div className="App" style={{position: 'relative', minHeight: '100vh'}}>
-          <div style={{paddingBottom: '2.5rem'}}>
+          <div style={{paddingBottom: '3.5rem'}}>
           <Header/>
           <Navbar/>
           <Route exact path='/Homepage' component={HomePage} />

@@ -5,9 +5,9 @@ import styled from 'styled-components'
 const Navbar = (props) => {
 	return (
         <HeaderSytle>
-			<Button><Link to='/HomePage'>Home Page</Link></Button>
-            <Button><Link to='/Categories'>Food Categories</Link></Button>
-            <Button><Link to='/MyReceipt'>MyReceipt</Link></Button>
+			<Link to='/HomePage'><Button>Home Page</Button></Link>
+            <Link to='/Categories'><Button>Food Categories</Button></Link>
+            <Link to='/MyReceipt'><Button>MyReceipt</Button></Link>
 		</HeaderSytle>
     )
 }
