@@ -1,31 +1,26 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const  Category = (props) => {
 
+function FoodItem(props) {
     return (
-        <CardDiv >
-            <FoodLink href={`Categories/${props.name}`}>
-                <p>{props.name}</p>
-                <img src={props.picture} alt="pic"/>
-            </FoodLink>
+        <CardDiv>
+            <ImgDec src={props.picture} alt="pic"/>
+            <p>{props.name}</p>
         </CardDiv>
-    );
-    
+    )
 }
 
-
-const FoodLink = styled.a`
-    text-decoration: none;
-    color: black;
-    &:hover {
-        font-weight: 900;
-    }
-
+const ImgDec =  styled.img`
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 300px;
 `
 
 const CardDiv = styled.div`
     text-decoration: none;
+    text-align: center;
     color: black;
     margin-bottom: 10px;
     display: inline-block;
@@ -35,4 +30,5 @@ const CardDiv = styled.div`
     &:hover { box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
             font-weight: 900;};
 `
-export default Category;
+
+export default FoodItem;
