@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const Search = (props) => {
 	return (
         <React.Fragment>
             <form>
                 <Input type="text" placeholder="Search Meal..." name="search"/>
-                <Button type="submit" value="Search"/>
+                <Link to={`/Search/Bolo`}><Button type="submit" value="Search"/></Link>
             </form>
         </React.Fragment>
             

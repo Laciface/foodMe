@@ -25,7 +25,7 @@ const Button = styled.div`
     background: lightblue;
     color: #fff;
     &:hover {
-        background: red;
+        background: red;}
 `
 const Input = styled.input`
         height: 30px;

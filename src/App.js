@@ -9,6 +9,7 @@ import HomePage from './components/HomePage'
 import FoodList from './components/FoodList'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import FoodDetails from './components/FoodDetails';
+import ResultList from './components/ResultList';
 
 
 function App(){
@@ -23,6 +24,7 @@ function App(){
           <Route exact path='/Categories' component={Categories} />
           <Route exact path={'/Categories/:category'}><FoodList/></Route>
           <Route exact path={'/FoodDetails/:id'}><FoodDetails/></Route>
+          <Route exact path={'/Search/:search'}><ResultList/></Route>
           <Footer/>
           </div>
         </div>
