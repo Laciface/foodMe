@@ -1,47 +1,70 @@
 import React from 'react'
-import Ingredient from "./Ingredient"
+import styled from 'styled-components'
 
 export default function Ingredients(props) {
 
-    // function filterIngredients(){
-    //     console.log("asdas")
-    //     Object.keys(details).forEach(element =>
-    //         {if(element.includes("strIngredient") && details[element] != null && details[element] != "" || element.includes("strMeasure") && details[element] != null && details[element] != ""){
-    //             let ingredient = document.createElement("p");
-    //             let text = document.createTextNode(`${details[element]}`)
-    //             ingredient.appendChild(text);
-    //             ingredient.addClass("ingredient");
-    //             console.log("asdasdas")
-    //         } 
-    //     })}
-
 
     return (
-        <div>
-            <div>
-                {props.ingrid1},
-                {props.ingrid2},
-                {props.ingrid3},
-                {props.ingrid4},
-                {props.ingrid5},
-                {props.ingrid6},
-                {props.ingrid7},
-                {props.ingrid8},
-                {props.ingrid9},
-                {props.ingrid10}
-            </div>
-            <div>
-                {props.measure1},
-                {props.measure2},
-                {props.measure3},
-                {props.measure4},
-                {props.measure5},
-                {props.measure6},
-                {props.measure7},
-                {props.measure8},
-                {props.measure9},
-                {props.measure10}
-            </div>
-        </div>
+        <ListContainer>
+            <List>
+                <Li>{props.ingrid1}</Li>
+                <Li>{props.ingrid2}</Li>
+                <Li>{props.ingrid3}</Li>
+                <Li>{props.ingrid4}</Li>
+                <Li>{props.ingrid5}</Li>
+                <Li>{props.ingrid6}</Li>
+                <Li>{props.ingrid7}</Li>
+                <Li>{props.ingrid8}</Li>
+                <Li>{props.ingrid9}</Li>
+                <Li>{props.ingrid10}</Li>
+            </List>
+            <ul>
+                <Li>{props.measure1}</Li>
+                <Li>{props.measure2}</Li>
+                <Li>{props.measure3}</Li>
+                <Li>{props.measure4}</Li>
+                <Li>{props.measure5}</Li>
+                <Li>{props.measure6}</Li>
+                <Li>{props.measure7}</Li>
+                <Li>{props.measure8}</Li>
+                <Li>{props.measure9}</Li>
+                <Li>{props.measure10}</Li>
+            </ul>
+        </ListContainer>
         )
     }
+
+
+const ListContainer = styled.div`
+    display: inline-block;
+`
+
+const List = styled.ul`
+    margin: 0;
+    padding-left: 1.2rem;
+`
+
+const Li = styled.li`
+    display: table-cell;
+    position: left;
+    text-align:left!important;
+    margin: 0;
+    padding-left: 1.2rem;
+    position: relative;
+    list-style-type: none;
+    padding-left: 2.5rem;
+    margin-bottom: 0.5rem;
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: -2px;
+        width: 5px;
+        height: 11px;
+        border-width: 0 2px 2px 0;
+        border-style: solid;
+        border-color: #00a8a8;
+        transform-origin: bottom left;
+        transform: rotate(45deg);}
+`
