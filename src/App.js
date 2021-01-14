@@ -7,6 +7,7 @@ import Footer from './layouts/Footer'
 import Navbar from './layouts/Navbar'
 import HomePage from './components/HomePage'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import FoodDetails from './components/FoodDetails';
 
 function App(){
   
@@ -17,6 +18,7 @@ function App(){
           <div style={{paddingBottom: '3.5rem'}}>
           <Header/>
           <Navbar/>
+          <Route exact path='/FoodDetails' component={FoodDetails} />
           <Route exact path='/Homepage' component={HomePage} />
           <Route exact path='/Categories' component={Categories} />
           <Footer/>
