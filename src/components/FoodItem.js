@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from 'styled-components';
+import {Link} from 'react-router-dom'
 
 
 function FoodItem(props) {
+    console.log(props.category)
     return (
-        <CardDiv>
-            <ImgDec src={props.picture} alt="pic"/>
-            <p>{props.name}</p>
-        </CardDiv>
+        <Link to={`FoodDetails/${props.id}`}>
+            <CardLink>
+                <ImgDec src={props.picture} alt="pic"/>
+                <p>{props.name}</p>
+            </CardLink>
+        </Link>
     )
 }
 
@@ -18,7 +22,7 @@ const ImgDec =  styled.img`
     width: 300px;
 `
 
-const CardDiv = styled.div`
+const CardLink = styled.div`
     text-decoration: none;
     text-align: center;
     color: black;

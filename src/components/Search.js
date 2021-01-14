@@ -6,7 +6,7 @@ const Search = (props) => {
         <React.Fragment>
             <form>
                 <Input type="text" placeholder="Search Meal..." name="search"/>
-                <Button>Search</Button>
+                <Button> Search</Button>
             </form>
         </React.Fragment>
             
@@ -26,7 +26,7 @@ const Button = styled.div`
     background: lightblue;
     color: #fff;
     &:hover {
-        background: red;
+        background: red;}
 `
 const Input = styled.input`
         height: 30px;

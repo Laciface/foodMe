@@ -20,9 +20,10 @@ const FoodList = () => {
             <FoodItem 
                 name={food.strMeal} 
                 picture={food.strMealThumb} 
-                key={food.idMeal}/>
+                key={food.idMeal}
+                id={food.idMeal}/>
         ))} 
-        </div>
+            </div>
     )
 }
 
