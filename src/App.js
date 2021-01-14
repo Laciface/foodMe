@@ -8,6 +8,7 @@ import Navbar from './layouts/Navbar'
 import HomePage from './components/HomePage'
 import FoodList from './components/FoodList'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Trial from './Trial'
 
 
 
@@ -20,6 +21,9 @@ function App(){
           <div style={{paddingBottom: '3.5rem'}}>
           <Header/>
           <Navbar/>
+          {/* <Route>
+            <Trial/>
+          </Route> */}
           <Route exact path='/' component={HomePage} />
           <Route exact path='/Categories' component={Categories} />
           <Route exact path={'/Categories/:category'}><FoodList/></Route>
