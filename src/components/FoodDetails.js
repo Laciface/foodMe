@@ -2,17 +2,19 @@ import React, { useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components';
 import Ingredients from './Ingredients'
+import { useParams } from 'react-router-dom';
 
 
 
 const FoodDetails = (props) => {
     const [details, setDetails] =  useState([]);
+    const {id} = useParams();
 
     useEffect(() => {
 		axios
-			.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${props.id}`)
+			.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
             .then((response) => setDetails(response.data.meals[0]));
-    }, []);
+    }, [details]);
     
 
     const Container = styled.div`
@@ -79,7 +81,7 @@ const FoodDetails = (props) => {
                 {details.strYoutube}
             </div>
 
-            <img src={details.strMealThumb}alt='Image'/>
+            <img src={details.strMealThumb} alt='Image'/>
 
             
     
