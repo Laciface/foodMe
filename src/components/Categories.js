@@ -14,7 +14,10 @@ const  Categories = () => {
     return (
         <div>
             {data.map( element => (
-            <Category name={element.strCategory} picture={element.strCategoryThumb} key={element.idCategory}/>
+            <Category 
+                name={element.strCategory} 
+                picture={element.strCategoryThumb} 
+                key={element.idCategory}/>
         ))} 
         </div>
     );

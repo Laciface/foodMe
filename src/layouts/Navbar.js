@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Navbar = (props) => {
 	return (
         <HeaderSytle>
-			<Link to='/HomePage'><Button>Home Page</Button></Link>
+			<Link to='/'><Button>Home Page</Button></Link>
             <Link to='/Categories'><Button>Food Categories</Button></Link>
             <Link to='/MyReceipt'><Button>MyReceipt</Button></Link>
 		</HeaderSytle>
@@ -21,10 +21,15 @@ const Button = styled.div`
     border-radius: 5px;
     padding: 7px 10px;
     margin: 20px;
+    cursor: pointer;
     background: lightblue;
     color: #fff;
     &:hover {
         background: red;
+`
+const Input = styled.input`
+        height: 30px;
+        width: 250px;
 `
 
 
