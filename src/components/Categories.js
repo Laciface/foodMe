@@ -10,6 +10,7 @@ const  Categories = () => {
         .then(resp => setData(resp.data.categories))
     }, []);
     
+
     return (
         <div>
             {data.map( element => (

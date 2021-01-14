@@ -8,8 +8,7 @@ import Navbar from './layouts/Navbar'
 import HomePage from './components/HomePage'
 import FoodList from './components/FoodList'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import FoodDetails from './components/FoodDetails2'
-
+import FoodDetails from './components/FoodDetails';
 
 
 function App(){
