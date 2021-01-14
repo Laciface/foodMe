@@ -6,14 +6,14 @@ const Search = (props) => {
         <React.Fragment>
             <form>
                 <Input type="text" placeholder="Search Meal..." name="search"/>
-                <Button> Search</Button>
+                <Button type="submit" value="Search"/>
             </form>
         </React.Fragment>
             
     )
 }
 
-const Button = styled.div`
+const Button = styled.input`
     text-decoration: none;
     font-family: 'sans-serif';
     font-size: 1.3rem;

@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 function FoodItem(props) {
     console.log(props.category)
     return (
-        <Link to={`FoodDetails/${props.id}`}>
+        <Link to={`/FoodDetails/${props.id}`}>
             <CardLink>
                 <ImgDec src={props.picture} alt="pic"/>
                 <p>{props.name}</p>
