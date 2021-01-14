@@ -8,7 +8,7 @@ import Navbar from './layouts/Navbar'
 import HomePage from './components/HomePage'
 import FoodList from './components/FoodList'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import FoodDetails from './components/FoodDetails'
+import FoodDetails from './components/FoodDetails2'
 
 
 
@@ -23,7 +23,7 @@ function App(){
           <Route exact path='/' component={HomePage} />
           <Route exact path='/Categories' component={Categories} />
           <Route exact path={'/Categories/:category'}><FoodList/></Route>
-          <Route exact path={'/Categories/FoodDetails/:id'}><FoodDetails/></Route>
+          <Route exact path={'/FoodDetails/:id'}><FoodDetails/></Route>
           <Footer/>
           </div>
         </div>

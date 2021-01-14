@@ -5,7 +5,7 @@ const  Category = (props) => {
 
     return (
         <CardDiv >
-            <FoodLink href={`Categories/${props.name}`}>
+            <FoodLink href={`/Categories/${props.name}`}>
                 <p>{props.name}</p>
                 <img src={props.picture} alt="pic"/>
             </FoodLink>
