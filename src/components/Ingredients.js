@@ -5,7 +5,12 @@ export default function Ingredients(props) {
 
 
     return (
+        <React.Fragment>
+            <div>
+                <strong>Ingredients:</strong>
+            </div>
         <ListContainer>
+            
             <List>
                 <Li>{props.ingrid1}</Li>
                 <Li>{props.ingrid2}</Li>
@@ -16,9 +21,8 @@ export default function Ingredients(props) {
                 <Li>{props.ingrid7}</Li>
                 <Li>{props.ingrid8}</Li>
                 <Li>{props.ingrid9}</Li>
-                <Li>{props.ingrid10}</Li>
             </List>
-            <ul>
+            <List>
                 <Li>{props.measure1}</Li>
                 <Li>{props.measure2}</Li>
                 <Li>{props.measure3}</Li>
@@ -28,9 +32,9 @@ export default function Ingredients(props) {
                 <Li>{props.measure7}</Li>
                 <Li>{props.measure8}</Li>
                 <Li>{props.measure9}</Li>
-                <Li>{props.measure10}</Li>
-            </ul>
+            </List>
         </ListContainer>
+        </React.Fragment>
         )
     }
 
@@ -42,10 +46,12 @@ const ListContainer = styled.div`
 const List = styled.ul`
     margin: 0;
     padding-left: 1.2rem;
+    display: table-cell;
+    max-width: 250px;
 `
 
 const Li = styled.li`
-    display: table-cell;
+    
     position: left;
     text-align:left!important;
     margin: 0;

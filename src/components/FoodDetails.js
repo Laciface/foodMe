@@ -1,5 +1,6 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import axios from 'axios'
+import FoodContext from './FoodContext'
 import styled from 'styled-components';
 import Ingredients from './Ingredients'
 import { useParams } from 'react-router-dom';
@@ -9,14 +10,20 @@ import { useParams } from 'react-router-dom';
 const FoodDetails = (props) => {
     const [details, setDetails] =  useState([]);
     const {id} = useParams();
+    const [foods, setFoods] = useContext(FoodContext);
 
     useEffect(() => {
 		axios
 			.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
             .then((response) => setDetails(response.data.meals[0]));
     }, [details]);
-    
 
+
+    const addReceipt =() => {
+        setFoods({
+            meals: [...foods.meals]
+        })
+	};
 
     return (
         <Container>
@@ -28,12 +35,7 @@ const FoodDetails = (props) => {
                     <ImgStyle src={details.strMealThumb} alt='Image'/>
                 </ImageContainer>
                 <TextContainer>
-                    <div>
-                        {details.strInstructions}
-                    </div>
-                    <div>
-                        {details.strArea}
-                    </div>
+                    
                     
                     <IngredDiv>
                         <Ingredients
@@ -59,9 +61,17 @@ const FoodDetails = (props) => {
                             measure10={details.strMeasure10}
                     />
                     </IngredDiv>
-                    <div>
-                        {details.strYoutube}
-                    </div>
+                    <MarginDiv>
+                    <strong> Instructions: </strong>
+                        {details.strInstructions}
+                    </MarginDiv>
+                    <MarginDiv>
+                        <strong>Origin:</strong> {details.strArea}
+                    </MarginDiv>
+                    <MarginDiv>
+                        <Button href={details.strYoutube}>Video</Button>
+                        <Button onClick={addReceipt}>Save Receipt</Button>
+                    </MarginDiv>
                 </TextContainer>
 
                 
@@ -72,14 +82,20 @@ const FoodDetails = (props) => {
 }
 
 
+const MarginDiv = styled.div`
+    margin-bottom:20px;
+`
+
 const IngredDiv = styled.div`
     flex-direction: column;
 `
 
 const TextContainer = styled.div`
+    text-align: justify;
+    letter-spacing:1px;
     font-size: 15px;
     left: 450px;
-    position: absolute;
+    position: relative;
     max-width: 500px;
     /* width: 100%;
     height: 100%; */
@@ -112,10 +128,10 @@ const Container = styled.div`
 `
 
 const SmallContainer = styled.div`
-    margin-top: 100px;
+    margin-top: 70px;
     position: relative;
     width: 1000px;
-    height: 450px;
+    height: auto;
     margin-bottom: 10px;
     display: inline-block;
 `
@@ -140,5 +156,20 @@ const TitleDiv = styled.div`
     color: white;
     `
 
+const Button = styled.a`
+    text-decoration: none;
+    font-family: 'sans-serif';
+    font-size: 1.3rem;
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 10px;
+    margin: 20px;
+    cursor: pointer;
+    background: lightblue;
+    color: #fff;
+    &:hover {
+        background: red;}
+`
 
 export default FoodDetails

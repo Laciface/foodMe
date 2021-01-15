@@ -7,17 +7,13 @@ export const FoodContext = createContext();
 
 export const FoodProvider = (props) => {
 
-    const [data, setData] =  useState([])
+    const [foods, setFoods] =  useState({
+        meals: []
+    })
 
-    useEffect(() => {
-        axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
-        .then(resp => setData(resp.data.categories))
-    }, []);
-
-
-
+    
     return (
-        <FoodContext.Provider value={data}>
+        <FoodContext.Provider value={[foods, setFoods]}>
             {props.children}
         </FoodContext.Provider>
     );
