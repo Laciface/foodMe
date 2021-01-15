@@ -1,5 +1,6 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import axios from 'axios'
+import FoodContext from './FoodContext'
 import styled from 'styled-components';
 import Ingredients from './Ingredients'
 import { useParams } from 'react-router-dom';
@@ -9,14 +10,20 @@ import { useParams } from 'react-router-dom';
 const FoodDetails = (props) => {
     const [details, setDetails] =  useState([]);
     const {id} = useParams();
+    const [foods, setFoods] = useContext(FoodContext);
 
     useEffect(() => {
 		axios
 			.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
             .then((response) => setDetails(response.data.meals[0]));
     }, [details]);
-    
 
+
+    const addReceipt =() => {
+        setFoods({
+            meals: [...foods.meals]
+        })
+	};
 
     return (
         <Container>
@@ -63,7 +70,7 @@ const FoodDetails = (props) => {
                     </MarginDiv>
                     <MarginDiv>
                         <Button href={details.strYoutube}>Video</Button>
-                        <Button>Save Receipt</Button>
+                        <Button onClick={addReceipt}>Save Receipt</Button>
                     </MarginDiv>
                 </TextContainer>
 

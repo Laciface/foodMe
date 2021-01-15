@@ -10,7 +10,7 @@ const ResultList = () => {
 
     useEffect(() => {
         axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
-        .then(resp => setResults(resp.data.meals))
+        .then((resp) => setResults(resp.data.meals))
     }, [results]);
 
     return (

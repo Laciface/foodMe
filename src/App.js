@@ -10,6 +10,7 @@ import FoodList from './components/FoodList'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import FoodDetails from './components/FoodDetails';
 import ResultList from './components/ResultList';
+import MyReceipt from './components/MyReceipt'
 
 
 function App(){
@@ -25,6 +26,7 @@ function App(){
           <Route exact path={'/Categories/:category'}><FoodList/></Route>
           <Route exact path={'/FoodDetails/:id'}><FoodDetails/></Route>
           <Route exact path={'/Search/:search'}><ResultList/></Route>
+          <Route exact path={'/MyReceipt'}><MyReceipt/></Route> 
           <Footer/>
           </div>
         </div>
