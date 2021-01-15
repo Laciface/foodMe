@@ -11,6 +11,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import FoodDetails from './components/FoodDetails';
 import ResultList from './components/ResultList';
 import MyReceipt from './components/MyReceipt'
+import Laci from './pictures/laci.png';
+import csongi from './pictures/csongi.png';
+
 
 
 function App(){
@@ -21,7 +24,10 @@ function App(){
           <div style={{paddingBottom: '3.5rem'}}>
           <Header/>
           <Navbar/>
-          <Route exact path='/' component={HomePage} />
+          <div style={{display: "inline-block", position: "relative"}}>
+            <div style={{display: "inline-block", position: "relative"}}><Route exact path='/' component={HomePage} /></div>
+            
+          </div>
           <Route exact path='/Categories' component={Categories} />
           <Route exact path={'/Categories/:category'}><FoodList/></Route>
           <Route exact path={'/FoodDetails/:id'}><FoodDetails/></Route>
@@ -29,7 +35,9 @@ function App(){
           <Route exact path={'/MyReceipt'}><MyReceipt/></Route> 
           <Footer/>
           </div>
+          
         </div>
+        
         </Router>
       </FoodProvider>
     );
