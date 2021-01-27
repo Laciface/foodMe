@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Search from './Search'
-import Laci from '/home/csongam7/Documents/PHP/foodMe/src/pictures/laci.png';
-import csongi from '/home/csongam7/Documents/PHP/foodMe/src/pictures/csongi.png';
+import Laci from '/home/laciface/Desktop/projects_PHP/TW_weeks/foodme/src/pictures/laci.png';
+import csongi from '/home/laciface/Desktop/projects_PHP/TW_weeks/foodme/src/pictures/csongi.png';
 
 export default function HomePage() {
     return (

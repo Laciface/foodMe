@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 const Search = (props) => {
+    const history = useHistory();
+    const [search, setSearch] = useState();
+
 	return (
         <React.Fragment>
             <form>
-                <Input type="text" placeholder="Search Meal..." name="search"/>
-                <Link to={`/Search/Bolo`}><Button type="submit" value="Search"/></Link>
+                <Input type="text" name="search" placeholder="Search Meal..." onChange={
+                    (event) =>  {
+                        setSearch(event.target.value)}
+                        }/>
+                <Button type="submit" value="Search" onClick={()=>{
+                    history.push(`/Search/${search}`)
+                }}/>
             </form>
         </React.Fragment>
             

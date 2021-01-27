@@ -6,10 +6,13 @@ const  Categories = () => {
     const [data, setData] =  useState([])
 
     useEffect(() => {
-        axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
+        axios.get('http://127.0.0.1:8000/api/category')
         .then(resp => setData(resp.data.categories))
     }, []);
     
+//'https://www.themealdb.com/api/json/v1/1/categories.php'
+
+    console.log(data);
 
     return (
         <div>

@@ -5,7 +5,6 @@ import FoodDeatails from './FoodDetails'
 const MyReceipt = () => {
     const [foods, setFoods] = useContext(FoodContext);
 
-
     return (
 		<div>
             {foods.meals.map(meal => (

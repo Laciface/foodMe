@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 
 
 function FoodItem(props) {
-    console.log(props.category)
     return (
         <Link to={`/FoodDetails/${props.id}`}>
             <CardLink>
