@@ -22,11 +22,12 @@ const FoodDetails = (props) => {
 
 
 
-    const addReceipt =() => {
+   
+
         setFoods({
             meals: [...foods.meals]
         })
-    };
+
 
     
 
@@ -50,6 +51,10 @@ const FoodDetails = (props) => {
 
 
     
+
+     const addReceipt =() => {
+            axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id}, {headers: {Authorization : 'Bearer ' + 'token'}})
+      };
 
     return (
         <Container>

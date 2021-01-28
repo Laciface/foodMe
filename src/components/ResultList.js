@@ -13,7 +13,6 @@ const ResultList = () => {
         .then((resp) => setResults(resp.data.meals))
     }, [search]);
 
-//https://www.themealdb.com/api/json/v1/1/search.php?s=
 
     return (
         <div>
