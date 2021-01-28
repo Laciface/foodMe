@@ -11,8 +11,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import FoodDetails from './components/FoodDetails';
 import ResultList from './components/ResultList';
 import MyReceipt from './components/MyReceipt'
-import Laci from './pictures/laci.png';
-import csongi from './pictures/csongi.png';
 
 
 

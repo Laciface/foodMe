@@ -10,10 +10,11 @@ const FoodList = () => {
     const {category} = useParams();
 
     useEffect(() => {
-        axios.get('https://www.themealdb.com/api/json/v1/1/filter.php?c=' + category)
-        .then(resp => setFoodList(resp.data.meals))
+        axios.get('http://127.0.0.1:8000/api/meals/' + category)
+        .then(resp => setFoodList(resp.data.meals));
     }, [category])
     
+
     return (
         <div>
             {foodList.map( food => (

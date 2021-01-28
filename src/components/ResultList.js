@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
-import Result from './Result'
+import FoodItem from './FoodItem'
 
 const ResultList = () => {
 
@@ -9,14 +9,19 @@ const ResultList = () => {
     const {search} = useParams();
 
     useEffect(() => {
-        axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+        axios.get(`http://127.0.0.1:8000/api/search/${search}`)
         .then((resp) => setResults(resp.data.meals))
-    }, [results]);
+    }, [search]);
+
 
     return (
         <div>
             {results.map(result => (
-                <Result details={result}/>
+                <FoodItem 
+                name={result.strMeal} 
+                picture={result.strMealThumb} 
+                key={result.idMeal}
+                id={result.idMeal}/>
             ))}
         </div>
     );

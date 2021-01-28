@@ -14,17 +14,13 @@ const FoodDetails = (props) => {
 
     useEffect(() => {
 		axios
-			.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
-            .then((response) => setDetails(response.data.meals[0]));
+			.get(`http://127.0.0.1:8000/api/foodDetails/${id}`)
+            .then(response => setDetails(response.data.meals[0]));
     }, [details]);
 
-
     const addReceipt =() => {
-        setFoods({
-            meals: [...foods.meals]
-        })
+        axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id}, {headers: {Authorization : 'Bearer ' + 'token'}})
 	};
-
     return (
         <Container>
             <TitleDiv>
@@ -38,8 +34,7 @@ const FoodDetails = (props) => {
                     
                     
                     <IngredDiv>
-                        <Ingredients
-                            ingrid1={details.strIngredient1}
+                        <Ingredients ingrid1={details.strIngredient1}
                             ingrid2={details.strIngredient2}
                             ingrid3={details.strIngredient3}
                             ingrid4={details.strIngredient4}
@@ -58,9 +53,13 @@ const FoodDetails = (props) => {
                             measure7={details.strMeasure7}
                             measure8={details.strMeasure8}
                             measure9={details.strMeasure9}
-                            measure10={details.strMeasure10}
-                    />
+                            measure10={details.strMeasure10}/>
+                    {/* {Object.keys(details).forEach(element =>{
+                        if(element.includes("strIngredient") && details[element] != null && details[element] !== "" ){
+                            <Ingredients ingredient={details[element]}/> }})} */}
+
                     </IngredDiv>
+
                     <MarginDiv>
                     <strong> Instructions: </strong>
                         {details.strInstructions}
