@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Search from './Search'
-import Laci from '/home/csongam7/Documents/PHP/foodMe/src/pictures/laci.png'
-import csongi from '/home/csongam7/Documents/PHP/foodMe/src/pictures/csongi.png'
+import Laci from '/home/laciface/Desktop/projects_PHP/TW_weeks/foodme/src/pictures/laci.png'
+import csongi from '/home/laciface/Desktop/projects_PHP/TW_weeks/foodme/src/pictures/csongi.png'
 //'/home/laciface/Desktop/projects_PHP/TW_weeks/foodme/src/pictures/csongi.png';
 //'/home/laciface/Desktop/projects_PHP/TW_weeks/foodme/src/pictures/laci.png';
 
@@ -15,7 +15,7 @@ export default function HomePage() {
             <Welcome style={{display: "inline-block", position: "relative"}}>Welcome!</Welcome>
             <div style={{display: "inline-block", position: "relative", float: "left"}}><img src={csongi} width="250" height="350"/></div>
             
-          </div>
+        </div>
                 
             </div>
             <div>

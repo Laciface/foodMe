@@ -10,7 +10,8 @@ import FoodList from './components/FoodList'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import FoodDetails from './components/FoodDetails';
 import ResultList from './components/ResultList';
-import MyReceipt from './components/MyReceipt'
+import MyReceipt from './components/MyReceipt';
+import Registration from './components/Registration';
 
 
 
@@ -26,6 +27,7 @@ function App(){
             <div style={{display: "inline-block", position: "relative"}}><Route exact path='/' component={HomePage} /></div>
             
           </div>
+          <Route exact path='/Registration' component={Registration}></Route>
           <Route exact path='/Categories' component={Categories} />
           <Route exact path={'/Categories/:category'}><FoodList/></Route>
           <Route exact path={'/FoodDetails/:id'}><FoodDetails/></Route>

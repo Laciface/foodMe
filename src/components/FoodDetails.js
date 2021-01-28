@@ -14,22 +14,12 @@ const FoodDetails = (props) => {
 
     useEffect(() => {
 		axios
-            .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+            .get(`http://127.0.0.1:8000/api/foodDetails/${id}`)
             .then(resp => setDetails(resp.data.meals[0]));
     }, []);
 
     console.log(details);
 
-
-
-   
-
-        setFoods({
-            meals: [...foods.meals]
-        })
-
-
-    
 
 
     const fillIngredients = () => { 
@@ -50,11 +40,10 @@ const FoodDetails = (props) => {
     return MeasureList;}
 
 
-    
 
-     const addReceipt =() => {
+    const addReceipt =() => {
             axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id}, {headers: {Authorization : 'Bearer ' + 'token'}})
-      };
+    };
 
     return (
         <Container>
