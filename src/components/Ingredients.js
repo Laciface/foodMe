@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default function Ingredients(props) {
+    console.log(props);
+
+    
 
 
     return (
@@ -12,26 +15,12 @@ export default function Ingredients(props) {
         <ListContainer>
             
             <List>
-                <Li>{props.ingrid1}</Li>
-                <Li>{props.ingrid2}</Li>
-                <Li>{props.ingrid3}</Li>
-                <Li>{props.ingrid4}</Li>
-                <Li>{props.ingrid5}</Li>
-                <Li>{props.ingrid6}</Li>
-                <Li>{props.ingrid7}</Li>
-                <Li>{props.ingrid8}</Li>
-                <Li>{props.ingrid9}</Li>
+            {props.ingredientsList.map(element => (
+                    <Li>{element}</Li>))}
             </List>
             <List>
-                <Li>{props.measure1}</Li>
-                <Li>{props.measure2}</Li>
-                <Li>{props.measure3}</Li>
-                <Li>{props.measure4}</Li>
-                <Li>{props.measure5}</Li>
-                <Li>{props.measure6}</Li>
-                <Li>{props.measure7}</Li>
-                <Li>{props.measure8}</Li>
-                <Li>{props.measure9}</Li>
+            {props.measureList.map(element => (
+                    <Li>{element}</Li>))}
             </List>
         </ListContainer>
         </React.Fragment>
