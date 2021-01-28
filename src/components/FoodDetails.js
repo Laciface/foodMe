@@ -14,15 +14,43 @@ const FoodDetails = (props) => {
 
     useEffect(() => {
 		axios
-			.get(`http://127.0.0.1:8000/api/foodDetails/${id}`)
-            .then(response => setDetails(response.data.meals[0]));
-    }, [details]);
+            .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+            .then(resp => setDetails(resp.data.meals[0]));
+    }, []);
+
+    console.log(details);
+
+
 
     const addReceipt =() => {
         setFoods({
             meals: [...foods.meals]
         })
-	};
+    };
+
+    
+
+
+    const fillIngredients = () => { 
+        const IngredientsList = [];
+        Object.keys(details).forEach(key => {
+        if(key.includes("strIngredient") && details[key] !== null && details[key] !== ""){
+            IngredientsList.push(details[key]);
+        }});
+    return IngredientsList;}
+
+
+    const fillMeasures = () => { 
+        const MeasureList = [];
+        Object.keys(details).forEach(key => {
+        if(key.includes("strMeasure") && details[key] !== null && details[key] !== ""){
+            MeasureList.push(details[key]);
+        }});
+    return MeasureList;}
+
+
+    
+
     return (
         <Container>
             <TitleDiv>
@@ -36,7 +64,10 @@ const FoodDetails = (props) => {
                     
                     
                     <IngredDiv>
-                        <Ingredients ingrid1={details.strIngredient1}
+                        <Ingredients
+                        ingredientsList={fillIngredients()}
+                        measureList={fillMeasures()}
+                            /*ingrid1={details.strIngredient1}
                             ingrid2={details.strIngredient2}
                             ingrid3={details.strIngredient3}
                             ingrid4={details.strIngredient4}
@@ -55,13 +86,9 @@ const FoodDetails = (props) => {
                             measure7={details.strMeasure7}
                             measure8={details.strMeasure8}
                             measure9={details.strMeasure9}
-                            measure10={details.strMeasure10}/>
-                    {/* {Object.keys(details).forEach(element =>{
-                        if(element.includes("strIngredient") && details[element] != null && details[element] !== "" ){
-                            <Ingredients ingredient={details[element]}/> }})} */}
-
+                            measure10={details.strMeasure10}*/
+                    />
                     </IngredDiv>
-
                     <MarginDiv>
                     <strong> Instructions: </strong>
                         {details.strInstructions}
