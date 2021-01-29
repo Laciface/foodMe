@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react'
 import axios from 'axios'
 import FoodItem from './FoodItem'
 import { useParams } from 'react-router-dom';
+import Navbar from '../layouts/Navbar'
 
 
 const FoodList = () => {
@@ -16,6 +17,8 @@ const FoodList = () => {
     
 
     return (
+        <React.Fragment>
+            <Navbar/>
         <div>
             {foodList.map( food => (
             <FoodItem 
@@ -25,6 +28,7 @@ const FoodList = () => {
                 id={food.idMeal}/>
         ))} 
             </div>
+            </React.Fragment>
     )
 }
 

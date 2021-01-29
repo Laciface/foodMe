@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios'
 import Category from './Category'
+import Navbar from '../layouts/Navbar'
 
 const  Categories = () => {
     const [data, setData] =  useState([])
@@ -15,6 +16,8 @@ const  Categories = () => {
     console.log(data);
 
     return (
+        <React.Fragment>
+        <Navbar/>
         <div>
             {data.map( element => (
             <Category 
@@ -23,6 +26,7 @@ const  Categories = () => {
                 key={element.idCategory}/>
         ))} 
         </div>
+        </React.Fragment>
     );
     
 }

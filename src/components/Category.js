@@ -1,15 +1,18 @@
 import React from 'react'
 import styled from 'styled-components';
 
+
 const  Category = (props) => {
 
     return (
+        <React.Fragment>
         <CardDiv >
             <FoodLink href={`/Categories/${props.name}`}>
                 <p>{props.name}</p>
                 <img src={props.picture} alt="pic"/>
             </FoodLink>
         </CardDiv>
+        </React.Fragment>
     );
     
 }

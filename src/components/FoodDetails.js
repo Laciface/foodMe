@@ -4,6 +4,8 @@ import FoodContext from './FoodContext'
 import styled from 'styled-components';
 import Ingredients from './Ingredients'
 import { useParams } from 'react-router-dom';
+import Navbar from '../layouts/Navbar'
+//import { useOktaAuth, authState} from "@okta/okta-react";
 
 
 
@@ -11,15 +13,30 @@ const FoodDetails = (props) => {
     const [details, setDetails] =  useState([]);
     const {id} = useParams();
     const [foods, setFoods] = useContext(FoodContext);
+    //const { authState, authService } = useOktaAuth();
+
+
+    let token = sessionStorage.getItem("token")
+    console.log(token)
+
+    // const [userInfo, setUserInfo] = useState();
+
+    // useEffect(() => {
+    //     if (!authState.isAuthenticated) {
+    //     // When user isn't authenticated, forget any user info
+    //     setUserInfo(null);
+    //     } else {
+    //     authService.getUser().then(info => {
+    //         setUserInfo(info);
+    //     });
+    //     }
+    // }, [authState, authService]);
 
     useEffect(() => {
 		axios
             .get(`http://127.0.0.1:8000/api/foodDetails/${id}`)
             .then(resp => setDetails(resp.data.meals[0]));
     }, []);
-
-    console.log(details);
-
 
 
     const fillIngredients = () => { 
@@ -34,18 +51,19 @@ const FoodDetails = (props) => {
     const fillMeasures = () => { 
         const MeasureList = [];
         Object.keys(details).forEach(key => {
-        if(key.includes("strMeasure") && details[key] !== null && details[key] !== ""){
+        if(key.includes("strMeasure") && details[key] != null && details[key] !== ""){
             MeasureList.push(details[key]);
         }});
     return MeasureList;}
 
 
-
     const addReceipt =() => {
-            axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id}, {headers: {Authorization : 'Bearer ' + 'token'}})
+            axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id}, {headers: {Authorization : 'Bearer ' + token}})
     };
 
     return (
+        <React.Fragment>
+            <Navbar/>
         <Container>
             <TitleDiv>
                 {details.strMeal}
@@ -55,32 +73,10 @@ const FoodDetails = (props) => {
                     <ImgStyle src={details.strMealThumb} alt='Image'/>
                 </ImageContainer>
                 <TextContainer>
-                    
-                    
                     <IngredDiv>
                         <Ingredients
                         ingredientsList={fillIngredients()}
                         measureList={fillMeasures()}
-                            /*ingrid1={details.strIngredient1}
-                            ingrid2={details.strIngredient2}
-                            ingrid3={details.strIngredient3}
-                            ingrid4={details.strIngredient4}
-                            ingrid5={details.strIngredient5}
-                            ingrid6={details.strIngredient6}
-                            ingrid7={details.strIngredient7}
-                            ingrid8={details.strIngredient8}
-                            ingrid9={details.strIngredient9}
-                            ingrid10={details.strIngredient10}
-                            measure1={details.strMeasure1}
-                            measure2={details.strMeasure2}
-                            measure3={details.strMeasure3}
-                            measure4={details.strMeasure4}
-                            measure5={details.strMeasure5}
-                            measure6={details.strMeasure6}
-                            measure7={details.strMeasure7}
-                            measure8={details.strMeasure8}
-                            measure9={details.strMeasure9}
-                            measure10={details.strMeasure10}*/
                     />
                     </IngredDiv>
                     <MarginDiv>
@@ -99,7 +95,7 @@ const FoodDetails = (props) => {
                 
             </SmallContainer>
         </Container>
-
+        </React.Fragment>
     );
 }
 
