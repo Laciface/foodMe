@@ -1,25 +1,59 @@
-import React from 'react'
+import axios from 'axios';
+import React, {useState} from 'react'
 import styled from 'styled-components';
 
 export default function Registration() {
+
+    const [userEmail, setEmail] = useState('');
+	const [userName, setName] = useState('');
+	const [userPassword, setPassword] = useState('');
+
+	const handleEmailChange = (event) => {
+		setEmail(event.target.value);
+	};
+
+	const handleNameChange = (event) => {
+		setName(event.target.value);
+	};
+
+	const handlePasswordChange = (event) => {
+		setPassword(event.target.value);
+	};
+
+    const register = (event)=> {
+        event.preventDefault();
+        axios.post("http://127.0.0.1:8000/api/register", {
+            name: userName,
+            email: userEmail,
+            password: userPassword
+        })
+    .then((response) => {
+        console.log(response)
+        window.location.href = '/'})
+    .catch(function(error){
+        alert(error)
+    })
+
+    }
+
     return (
         <BODY>
         <BOX>
-            <form  action="http://127.0.0.1:8000/api/register" method="POST">
+            <form>
             <SPAN>registration</SPAN>
             <CONTAINER>
-                <INPUT type="text" placeholder="Enter name" name="name" required/>
+                <INPUT type="text" onChange={handleNameChange} placeholder="Enter name" name="name" required/>
                 <LABEL for="psw-repeat"></LABEL>
             </CONTAINER>
             <CONTAINER>
-                <INPUT type="text" placeholder="Enter email" name="email" required/>
+                <INPUT type="text" onChange={handleEmailChange} placeholder="Enter email" name="email" required/>
                 <LABEL for="psw-repeat"></LABEL>
             </CONTAINER>
             <CONTAINER>
-                <INPUT type="password" placeholder="Enter Password" name="password" required/>
+                <INPUT type="password" onChange={handlePasswordChange} placeholder="Enter Password" name="password" required/>
                 <LABEL for="psw"></LABEL>
             </CONTAINER>
-                <BUTTON type="submit" >Submit</BUTTON>
+                <BUTTON type="submit"  onClick={register}>Submit</BUTTON>
             </form>
         </BOX>
         </BODY>
