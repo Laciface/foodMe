@@ -3,12 +3,23 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const Header = (props) => {
+
+    const logout = (event)=> {
+        event.preventDefault();
+        sessionStorage.clear();
+        alert('Logout');
+        window.location.href = '/';
+        
+    }
+
+
 	return (
         <HeaderSytle>
             <DIV>
             <DIV2>
             <Link to='/Registration'><H5>Sign Up</H5></Link>
             <Link to='/Login'><H5>Sign In</H5></Link>
+            <Link to='/'onClick={logout}><H5>Logout</H5></Link>
             </DIV2>
 			<DIV3>
                 <H1>FoodMe.</H1>
