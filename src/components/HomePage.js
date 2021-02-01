@@ -24,7 +24,7 @@ export default function HomePage() {
             <div>
             <div style={{display: "inline-block", position: "relative"}}>
             <div style={{display: "inline-block", position: "relative", float: "right"}}><img src={Laci} width="200" height="300"/></div>
-            <Welcome style={{display: "inline-block", position: "relative"}}>Welcome!</Welcome>
+            <Welcome style={{display: "inline-block", position: "relative"}}>Welcome {sessionStorage.getItem('username')}!</Welcome>
             <div style={{display: "inline-block", position: "relative", float: "left"}}><img src={csongi} width="250" height="350"/></div>
             
         </div>
@@ -39,7 +39,7 @@ export default function HomePage() {
 
 const Welcome = styled.p`
     font-weight: 800;
-    font-size: 200px;
+    font-size: 150px;
     text-align: center;
     margin-bottom: 5px;
     margin-top: 100px;
