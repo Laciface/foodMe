@@ -1,27 +1,51 @@
-import React from 'react'
+import React, {useState} from 'react'
+import axios from 'axios';
 import styled from 'styled-components';
 
 export default function Login() {
+    const [userEmail, setEmail] = useState('');
+	const [userPassword, setPassword] = useState('');
 
-    function getToken(){
-        let token = sessionStorage.getItem('token', 'hmsgcbjknkm')
-    }
+    const handleEmailChange = (event) => {
+		setEmail(event.target.value);
+	};
+
+	const handlePasswordChange = (event) => {
+		setPassword(event.target.value);
+	};
 
     
+    const login = (event) => {
+        event.preventDefault();
+        axios.post("http://127.0.0.1:8000/api/login", {
+            email: userEmail,
+            password: userPassword
+        })
+        .then((response) => {
+            console.log(response);
+            sessionStorage.setItem('token', response.data.token );
+            sessionStorage.setItem('username', response.data.name );
+            window.location.href = '/';
+        })
+        .catch(function (error) {
+            alert(error)
+        });
+    }
+
     return (
         <BODY>
         <BOX>
-            <form  action="http://127.0.0.1:8000/api/login" method="POST">
+            <form>
             <SPAN>login</SPAN>
             <CONTAINER>
-                <INPUT type="text" placeholder="Enter email" name="email" required/>
+                <INPUT type="text" onChange={handleEmailChange} placeholder="Enter email" name="email" required/>
                 <LABEL for="psw-repeat"></LABEL>
             </CONTAINER>
             <CONTAINER>
-                <INPUT type="password" placeholder="Enter Password" name="password" required/>
+                <INPUT type="password" onChange={handlePasswordChange} placeholder="Enter Password" name="password" required/>
                 <LABEL for="psw"></LABEL>
             </CONTAINER>
-                <BUTTON type="submit" onClick={getToken}>Submit</BUTTON>
+                <BUTTON type="submit" onClick={login}>Submit</BUTTON>
             </form>
         </BOX>
         </BODY>
