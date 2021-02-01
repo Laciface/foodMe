@@ -57,69 +57,7 @@ export default function Registration() {
             </form>
         </BOX>
         </BODY>
-        // <Main>
-        //     <FORM action="http://127.0.0.1:8000/api/register" method="POST">
-        //         <DIV>
-        //         <label for="email"><b>Name: </b></label>
-        //         <Input type="text" placeholder="Enter Name" name="name" required/>
-        //         </DIV>
-        //         <DIV>
-        //         <label for="psw-repeat"><b>Email: </b></label>
-        //         <Input type="text" placeholder="Enter email" name="email" required/>
-        //         </DIV>
-        //         <DIV>
-        //         <label for="psw"><b>Password: </b></label>
-        //         <Input type="password" placeholder="Enter Password" name="password" required/>
-        //         </DIV>
-        //         <DIV>
-        //         <Button type="submit">Submit</Button>
-        //         </DIV>
-        //     </FORM>
-        // </Main>
-    )
-}
-
-
-// const Input = styled.input`
-//     width: 300px;
-//     height: 50px;
-//     border-radius: 0%;
-//     font-size: 35px;
-//     font-weight: 500;
-// `
-
-// const Main = styled.div`
-//     background-image: url("../pictures/hamburger.png")
-// ` 
-
-// const FORM = styled.form`
-//     background-color: lightblue;
-//     flex-direction: column;
-//     border: solid;
-//     text-align: center;
-//     letter-spacing: 7px;
-//     font-family: 'Courier New', Courier, monospace;
-// `
-
-// const DIV = styled.div`
-//     margin: 15px;
-//     font-size: 50px;
-// `
-// const Button = styled.div`
-//     text-decoration: none;
-//     font-family: 'sans-serif';
-//     font-size: 1.3rem;
-//     display: inline-block;
-//     border: none;
-//     border-radius: 5px;
-//     padding: 7px 10px;
-//     margin: 20px;
-//     cursor: pointer;
-//     background: lightblue;
-//     color: #fff;
-//     &:hover {
-//         background: red;}
-// `
+    )}
 const BODY = styled.body`
 	background-image: url('https://wallpapercave.com/wp/wc1813154.jpg');
 	background-position: center;
