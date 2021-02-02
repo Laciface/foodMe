@@ -1,36 +1,16 @@
 import React, { useState, useEffect, useContext} from 'react'
 import axios from 'axios'
-import FoodContext from './FoodContext'
 import styled from 'styled-components';
 import Ingredients from './Ingredients'
 import { useParams } from 'react-router-dom';
 import Navbar from '../layouts/Navbar'
-//import { useOktaAuth, authState} from "@okta/okta-react";
 
 
 
 const FoodDetails = (props) => {
     const [details, setDetails] =  useState([]);
     const {id} = useParams();
-    const [foods, setFoods] = useContext(FoodContext);
-    //const { authState, authService } = useOktaAuth();
-
-
-    let token = sessionStorage.getItem("token")
-    console.log(token)
-
-    // const [userInfo, setUserInfo] = useState();
-
-    // useEffect(() => {
-    //     if (!authState.isAuthenticated) {
-    //     // When user isn't authenticated, forget any user info
-    //     setUserInfo(null);
-    //     } else {
-    //     authService.getUser().then(info => {
-    //         setUserInfo(info);
-    //     });
-    //     }
-    // }, [authState, authService]);
+    
 
     useEffect(() => {
 		axios
@@ -59,6 +39,7 @@ const FoodDetails = (props) => {
 
     const addReceipt =() => {
             axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id}, {headers: {Authorization : 'Bearer ' + sessionStorage.getItem('token')}})
+            .then(alert("Receipt added to favorites"))
     };
 
     return (
@@ -115,8 +96,6 @@ const TextContainer = styled.div`
     left: 450px;
     position: relative;
     max-width: 500px;
-    /* width: 100%;
-    height: 100%; */
     display: table-cell;
     vertical-align: middle;
 `
