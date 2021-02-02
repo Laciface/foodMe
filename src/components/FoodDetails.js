@@ -36,10 +36,16 @@ const FoodDetails = (props) => {
         }});
     return MeasureList;}
 
+    const token = sessionStorage.getItem('token');
 
     const addReceipt =() => {
-            axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id}, {headers: {Authorization : 'Bearer ' + sessionStorage.getItem('token')}})
-            .then(alert("Receipt added to favorites"))
+            axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id}, {headers: {Authorization : 'Bearer ' + token}})
+            //.then(alert("Receipt added to favorites"))
+            if(token !== "" && token!== null){
+                alert("Receipt added to favorites")
+            } else {
+                alert('You are not logged in')
+            }
     };
 
     return (
