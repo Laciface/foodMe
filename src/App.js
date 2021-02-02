@@ -22,11 +22,6 @@ function App(){
         <div className="App" style={{position: 'relative', minHeight: '100vh'}}>
           <div style={{paddingBottom: '3.5rem'}}>
           <Header/>
-          {/* <Navbar> */}
-          {/* <div style={{display: "inline-block", position: "relative"}}>
-            <div style={{display: "inline-block", position: "relative"}}><Route exact path='/' component={HomePage} /></div>
-            
-          </div> */}
           <Route exact path='/' component={HomePage} />
           <Route exact path='/Registration' component={Registration}></Route>
           <Route exact path='/Login' component={Login}></Route>
