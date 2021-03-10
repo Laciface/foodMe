@@ -2,7 +2,8 @@
 
 ## About  
 
-This project was bootstrapped with react.
+This project was written in PHP. We had 2 one week long sprints, first we developed the frontend with React, then on the second sprint we build up the backend with Laravel.
+
 ### Start frontend  
 
 1. git clone https://github.com/Laciface/foodMe.git
