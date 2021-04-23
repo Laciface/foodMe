@@ -50,7 +50,6 @@ const FoodDetails = (props) => {
 
     return (
         <React.Fragment>
-            <Navbar/>
         <Container>
             <TitleDiv>
                 {details.strMeal}

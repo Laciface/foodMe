@@ -12,12 +12,12 @@ const Footer = (props) => {
 const FooterSytle = styled.footer`
     position: absolute;
     width: 100%;
-    height: 96px;
+    height: 102px;
     bottom: 0;
 	background: black;
     color: black;
     text-align: center;
-    border-top: 5px solid red;
+    border-top: 2px solid red;
 ` 
 
 const H3 = styled.h3`

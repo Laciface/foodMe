@@ -32,7 +32,7 @@ const Button = styled.input`
     padding: 7px 10px;
     margin: 20px;
     cursor: pointer;
-    background: lightblue;
+    background: none;
     color: #fff;
     &:hover {
         background: red;}

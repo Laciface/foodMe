@@ -37,7 +37,7 @@ const Container = styled.div`
     background-color: black;
     position: relative;
     display: flex;
-    border-bottom: 5px solid red;
+    border-bottom: 2px solid red;
 `
 
 const Links = styled.div`
