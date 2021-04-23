@@ -40,7 +40,6 @@ const Button = styled.input`
 const Input = styled.input`
         height: 30px;
         width: 350px;
-        position: fixed;
 `
 
 export default Search;

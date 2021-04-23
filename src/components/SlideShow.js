@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState, useRef, useEffect} from 'react'
 import styled from 'styled-components';
+import Search from './Search';
 
 const pictures = [
     {name:'https://ba2405dc7b30afe52630-7360b65eaf2d1e8c521c2d0cc5536ea2.ssl.cf1.rackcdn.com/Moroccan.jpg'},
@@ -36,6 +37,10 @@ export default function SlideShow() {
     }, [index]);
 
     return (
+        <React.Fragment>
+            <div>
+            <Welcome style={{position: "absolute", zIndex : "2" }}>Welcome {sessionStorage.getItem('username')}!</Welcome>
+            </div>
         <Slideshow>
         <SlideshowSlider
             style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
@@ -43,11 +48,15 @@ export default function SlideShow() {
             {pictures.map((image, index) => (
             <Slide
                 key={index}
-                style={{ backgroundImage : `url(${image.name})` }}
+                style={{ position: "relative", backgroundImage : `url(${image.name})`, zIndex : "1" }}
             ></Slide>
             ))}
         </SlideshowSlider>
         </Slideshow>
+        <SearchDiv>
+            <Search/>
+        </SearchDiv>
+        </React.Fragment>
     );
 }
 
@@ -68,3 +77,20 @@ const Slide = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 0px;`
+
+const Welcome = styled.p`
+    color: white;
+    font-weight: 800;
+    font-size: 150px;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 100px;
+    margin-left: 450px;
+`
+
+const SearchDiv = styled.div`
+    margin-top: -300px;
+    margin-left: 740px;
+    z-index: 2;
+    position: absolute;
+`
