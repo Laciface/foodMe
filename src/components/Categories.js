@@ -17,7 +17,6 @@ const  Categories = () => {
 
     return (
         <React.Fragment>
-        <Navbar/>
         <div>
             {data.map( element => (
             <Category 

@@ -21,7 +21,6 @@ export default function HomePage() {
 
     return (
         <React.Fragment>
-            <Navbar/>
             <SlideShow/>
         </React.Fragment>
     )

@@ -80,12 +80,13 @@ const Slide = styled.div`
 
 const Welcome = styled.p`
     color: white;
-    font-weight: 800;
+    font-weight: 500;
     font-size: 150px;
     text-align: center;
     margin-bottom: 5px;
     margin-top: 100px;
     margin-left: 450px;
+    font-family:'Gloria Hallelujah', cursive;
 `
 
 const SearchDiv = styled.div`

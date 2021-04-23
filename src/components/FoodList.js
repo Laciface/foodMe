@@ -18,7 +18,6 @@ const FoodList = () => {
 
     return (
         <React.Fragment>
-            <Navbar/>
         <div>
             {foodList.map( food => (
             <FoodItem 
