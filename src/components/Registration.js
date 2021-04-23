@@ -29,7 +29,7 @@ export default function Registration() {
         })
     .then((response) => {
         console.log(response)
-        window.location.href = '/'})
+        window.location.href = '/Login'})
     .catch(function(error){
         alert(error)
     })

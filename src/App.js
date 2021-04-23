@@ -12,6 +12,7 @@ import ResultList from './components/ResultList';
 import MyReceipt from './components/MyReceipt';
 import Registration from './components/Registration';
 import Login from './components/Login'
+import SlideShow from './components/SlideShow';
 
 
 
@@ -29,7 +30,8 @@ function App(){
           <Route exact path={'/Categories/:category'}><FoodList/></Route>
           <Route exact path={'/FoodDetails/:id'}><FoodDetails/></Route>
           <Route exact path={'/Search/:search'}><ResultList/></Route>
-          <Route exact path={'/MyReceipt'}><MyReceipt/></Route> 
+          <Route exact path={'/MyReceipt'}><MyReceipt/></Route>
+          <Route exact path={'/SlideShow'}><SlideShow/></Route>
           <Footer/>
           </div>
           
