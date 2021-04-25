@@ -3,7 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components';
 import Ingredients from './Ingredients'
 import { useParams } from 'react-router-dom';
-import Navbar from '../layouts/Navbar'
+import YoutubeModal from 'react-youtube-modal'
 
 
 
@@ -18,6 +18,15 @@ const FoodDetails = (props) => {
             .then(resp => setDetails(resp.data.meals[0]));
     }, []);
 
+    const loggedIn = ()=> {
+        if(sessionStorage.length !== 0){
+            return (
+                <React.Fragment>
+                    <Button onClick={addReceipt}>Save Receipt</Button>
+                </React.Fragment>
+            );
+        }
+    }
 
     const fillIngredients = () => { 
         const IngredientsList = [];
@@ -26,7 +35,6 @@ const FoodDetails = (props) => {
             IngredientsList.push(details[key]);
         }});
     return IngredientsList;}
-
 
     const fillMeasures = () => { 
         const MeasureList = [];
@@ -48,9 +56,10 @@ const FoodDetails = (props) => {
             }
     };
 
+    console.log(details.strYoutube)
+
     return (
         <React.Fragment>
-            <Navbar/>
         <Container>
             <TitleDiv>
                 {details.strMeal}
@@ -75,11 +84,12 @@ const FoodDetails = (props) => {
                     </MarginDiv>
                     <MarginDiv>
                         <Button href={details.strYoutube}>Video</Button>
-                        <Button onClick={addReceipt}>Save Receipt</Button>
+                        <YoutubeModal videoId={details.strYoutube.substr(details.strYoutube.length - 11)} >
+                            <button type="button">Open Modal!</button>
+                        </YoutubeModal>
+                        {loggedIn()}
                     </MarginDiv>
                 </TextContainer>
-
-                
             </SmallContainer>
         </Container>
         </React.Fragment>

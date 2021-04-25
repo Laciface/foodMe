@@ -8,11 +8,16 @@ function FoodItem(props) {
         <Link to={`/FoodDetails/${props.id}`}>
             <CardLink>
                 <ImgDec src={props.picture} alt="pic"/>
-                <p>{props.name}</p>
+                <Name>{props.name}</Name>
             </CardLink>
         </Link>
     )
 }
+
+const Name = styled.p`
+    font-family:'Gloria Hallelujah', cursive;
+    font-size: 20px;
+`
 
 const ImgDec =  styled.img`
     border: 1px solid #ddd;

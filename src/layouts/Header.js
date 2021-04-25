@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import '../App.css';
+
 
 const Header = (props) => {
 
@@ -12,46 +14,60 @@ const Header = (props) => {
         
     }
 
+    const loggedIn = ()=> {
+        if(sessionStorage.length === 0){
+            return (
+                <React.Fragment>
+                    <div><Link to='/Registration'><Button>Sign Up</Button></Link></div>
+                    <div><Link to='/Login'><Button>Login</Button></Link></div>
+                </React.Fragment>
+            );
+        } else {
+            return (
+                <React.Fragment>
+                    <div><Link to='/MyReceipt'><Button>MyProfile</Button></Link></div>
+                    <div><Link to='/'onClick={logout}><Button>Logout</Button></Link></div>
+                </React.Fragment>)
+        }
+    }
 
 	return (
-        <HeaderSytle>
-            <DIV>
-            <DIV2>
-            <Link to='/Registration'><H5>Sign Up</H5></Link>
-            <Link to='/Login'><H5>Sign In</H5></Link>
-            <Link to='/'onClick={logout}><H5>Logout</H5></Link>
-            </DIV2>
-			<DIV3>
+            <Container>
+            <Links>
+            
+                <div><Link to='/'><Button>Home Page</Button></Link></div>
+                <div><Link to='/Categories'><Button>Food Categories</Button></Link></div>
+                {loggedIn()}
+                
+            </Links>
+            <Logo>
                 <H1>FoodMe.</H1>
-            </DIV3>
-            </DIV>
-		</HeaderSytle>
+            </Logo>
+            </Container>
     )
 }
 
 
-const DIV = styled.div`
+const Container = styled.div`
+    background-color: black;
     position: relative;
     display: flex;
+    border-bottom: 2px solid red;
 `
 
-const DIV2 = styled.div`
-    float:left;
-    position: relative;
+const Links = styled.div`
+    position: absolute;
+    flex-direction: row;
+    display: flex;
+    right: 0;
     `
 
-const DIV3 = styled.div`
-margin-left:730px;
-display: block;
-position: relative;
+const Logo = styled.div`
+    margin-left:30px;
+    display: block;
+    position: relative;
 `
 
-const HeaderSytle = styled.header`
-	background: black;
-    color: black;
-    text-align: center;
-    padding: 10px;
-` 
 
 const H1 = styled.h1`
 	font-weight: 800;
@@ -60,14 +76,26 @@ const H1 = styled.h1`
     font-size: 50px;
 `
 
-const H5 = styled.h5`
-	font-weight: 400;
+
+const Button = styled.div`
+    text-decoration: none;
+    font-family:'Gloria Hallelujah', cursive;
+    font-size: 1.6rem;
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 10px;
+    margin: 10px;
+    cursor: pointer;
+    color: #fff;
+    &:hover {
+        background: red;}
+`
+
+const H2 = styled.h1`
+	font-weight: 800;
     color: white;
     text-decoration: none;
-    letter-spacing: 5px;
-    text-align: left;
-    font-size: 15px;
-
 `
 
 export default Header;

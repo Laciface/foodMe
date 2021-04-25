@@ -13,7 +13,7 @@ import MyReceipt from './components/MyReceipt';
 import Registration from './components/Registration';
 import Login from './components/Login'
 import SlideShow from './components/SlideShow';
-
+import Youtube from './components/Youtube';
 
 
 function App(){
@@ -32,11 +32,10 @@ function App(){
           <Route exact path={'/Search/:search'}><ResultList/></Route>
           <Route exact path={'/MyReceipt'}><MyReceipt/></Route>
           <Route exact path={'/SlideShow'}><SlideShow/></Route>
+          <Route exact path={'/Youtube'}><Youtube/></Route>
           <Footer/>
           </div>
-          
         </div>
-        
         </Router>
       </FoodProvider>
     );

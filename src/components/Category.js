@@ -8,7 +8,7 @@ const  Category = (props) => {
         <React.Fragment>
         <CardDiv >
             <FoodLink href={`/Categories/${props.name}`}>
-                <p>{props.name}</p>
+                <Name>{props.name}</Name>
                 <img src={props.picture} alt="pic"/>
             </FoodLink>
         </CardDiv>
@@ -17,6 +17,10 @@ const  Category = (props) => {
     
 }
 
+const Name = styled.p`
+    font-family:'Gloria Hallelujah', cursive;
+    font-size: 20px;
+`
 
 const FoodLink = styled.a`
     text-decoration: none;
