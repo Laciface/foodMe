@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, {useState, useRef, useEffect} from 'react'
 import styled from 'styled-components';
 import Search from './Search';

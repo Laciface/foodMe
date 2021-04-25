@@ -13,8 +13,6 @@ const  Categories = () => {
     
 //'https://www.themealdb.com/api/json/v1/1/categories.php'
 
-    console.log(data);
-
     return (
         <React.Fragment>
         <div>

@@ -2,11 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default function Ingredients(props) {
-    console.log(props);
-
-    
-
-
     return (
         <React.Fragment>
             <div>

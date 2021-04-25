@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components';
 import Ingredients from './Ingredients'
 import { useParams } from 'react-router-dom';
+import YoutubeModal from 'react-youtube-modal'
 
 
 
@@ -35,7 +36,6 @@ const FoodDetails = (props) => {
         }});
     return IngredientsList;}
 
-
     const fillMeasures = () => { 
         const MeasureList = [];
         Object.keys(details).forEach(key => {
@@ -55,6 +55,8 @@ const FoodDetails = (props) => {
                 alert('You are not logged in')
             }
     };
+
+    console.log(details.strYoutube)
 
     return (
         <React.Fragment>
@@ -82,11 +84,12 @@ const FoodDetails = (props) => {
                     </MarginDiv>
                     <MarginDiv>
                         <Button href={details.strYoutube}>Video</Button>
+                        <YoutubeModal videoId={details.strYoutube.substr(details.strYoutube.length - 11)} >
+                            <button type="button">Open Modal!</button>
+                        </YoutubeModal>
                         {loggedIn()}
                     </MarginDiv>
                 </TextContainer>
-
-                
             </SmallContainer>
         </Container>
         </React.Fragment>
