@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect} from 'react'
 import axios from 'axios'
 import styled from 'styled-components';
 import Ingredients from './Ingredients'
@@ -84,9 +84,9 @@ const FoodDetails = (props) => {
                     </MarginDiv>
                     <MarginDiv>
                         <Button href={details.strYoutube}>Video</Button>
-                        <YoutubeModal videoId={details.strYoutube.substr(details.strYoutube.length - 11)} >
+                        {/* <YoutubeModal videoId={details.strYoutube.substr(details.strYoutube.length - 11)} >
                             <button type="button">Open Modal!</button>
-                        </YoutubeModal>
+                            </YoutubeModal>*/}
                         {loggedIn()}
                     </MarginDiv>
                 </TextContainer>
