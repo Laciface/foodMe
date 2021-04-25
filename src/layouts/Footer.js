@@ -50,12 +50,4 @@ const Circle = styled.div`
     display: inline-block;
     margin-right: 5px;
 `
-
-const About = styled.div`
-    color : white;
-    margin-top: 15px;
-    margin-right:750px;
-    margin-left: 50px;
-`
-
 export default Footer;

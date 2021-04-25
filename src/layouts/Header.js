@@ -91,11 +91,4 @@ const Button = styled.div`
     &:hover {
         background: red;}
 `
-
-const H2 = styled.h1`
-	font-weight: 800;
-    color: white;
-    text-decoration: none;
-`
-
 export default Header;
