@@ -1,10 +1,22 @@
 import React, {useState} from 'react'
 import axios from 'axios';
 import styled from 'styled-components';
-import { useAlert } from 'react-alert'
+/* import { makeStyles } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert'; */
+/* import { useAlert } from 'react-alert' */
+
+/* const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '100%',
+      '& > * + *': {
+        marginTop: theme.spacing(2),
+    },
+    },
+})); */
 
 export default function Login() {
-    const alert = useAlert();
+/*     const alert = useAlert(); */
+/*     const classes = useStyles(); */
     const [userEmail, setEmail] = useState('');
 	const [userPassword, setPassword] = useState('');
 
@@ -29,7 +41,12 @@ export default function Login() {
             window.location.href = '/';
         })
         .catch(function (error) {
-            alert.show(error)
+            /*  return (
+                <div className={classes.root}>
+                    <Alert severity="error">This is an error alert — check it out!</Alert>
+                </div>
+            ); */
+            /* alert(error) */
         });
     }
 

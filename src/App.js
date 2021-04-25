@@ -13,22 +13,26 @@ import MyReceipt from './components/Profile/MyReceipt';
 import Registration from './components/Authentication/Registration';
 import Login from './components/Authentication/Login'
 import SlideShow from './components/SlideShow';
-import { transitions, positions, Provider as AlertProvider } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
+import Tabs from './components/Profile/Tabs'
+/* import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic' */
 
 
-const options = {
+/* const options = {
   // you can also just use 'bottom center'
   position: positions.BOTTOM_CENTER,
   timeout: 5000,
   offset: '30px',
   // you can also just use 'scale'
   transition: transitions.SCALE
-}
+} */
+
+/* <AlertProvider template={AlertTemplate} {...options}> */
+/* </AlertProvider> */
+
 
 function App(){
     return (
-      <AlertProvider template={AlertTemplate} {...options}>
       <FoodProvider>
         <Router>
         <div className="App" style={{position: 'relative', minHeight: '100vh'}}>
@@ -43,12 +47,12 @@ function App(){
           <Route exact path={'/Search/:search'}><ResultList/></Route>
           <Route exact path={'/MyReceipt'}><MyReceipt/></Route>
           <Route exact path={'/SlideShow'}><SlideShow/></Route>
+          <Route exact path={'/Tabs'}><Tabs/></Route>
           <Footer/>
           </div>
         </div>
         </Router>
       </FoodProvider>
-      </AlertProvider>
     );
 }
 

@@ -25,7 +25,7 @@ const Header = (props) => {
         } else {
             return (
                 <React.Fragment>
-                    <div><Link to='/MyReceipt'><Button>MyProfile</Button></Link></div>
+                    <div><Link to='/Tabs'><Button>MyProfile</Button></Link></div>
                     <div><Link to='/'onClick={logout}><Button>Logout</Button></Link></div>
                 </React.Fragment>)
         }
