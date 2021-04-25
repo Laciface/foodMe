@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import axios from 'axios';
 import styled from 'styled-components';
+import { useAlert } from 'react-alert'
 
 export default function Login() {
+    const alert = useAlert();
     const [userEmail, setEmail] = useState('');
 	const [userPassword, setPassword] = useState('');
 
@@ -22,13 +24,12 @@ export default function Login() {
             password: userPassword
         })
         .then((response) => {
-            console.log(response);
             sessionStorage.setItem('token', response.data.token );
             sessionStorage.setItem('username', response.data.name );
             window.location.href = '/';
         })
         .catch(function (error) {
-            alert(error)
+            alert.show(error)
         });
     }
 
