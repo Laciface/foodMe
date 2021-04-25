@@ -3,7 +3,6 @@ import axios from 'axios'
 import styled from 'styled-components';
 import Ingredients from './Ingredients'
 import { useParams } from 'react-router-dom';
-import Navbar from '../layouts/Navbar'
 
 
 
@@ -18,6 +17,15 @@ const FoodDetails = (props) => {
             .then(resp => setDetails(resp.data.meals[0]));
     }, []);
 
+    const loggedIn = ()=> {
+        if(sessionStorage.length !== 0){
+            return (
+                <React.Fragment>
+                    <Button onClick={addReceipt}>Save Receipt</Button>
+                </React.Fragment>
+            );
+        }
+    }
 
     const fillIngredients = () => { 
         const IngredientsList = [];
@@ -74,7 +82,7 @@ const FoodDetails = (props) => {
                     </MarginDiv>
                     <MarginDiv>
                         <Button href={details.strYoutube}>Video</Button>
-                        <Button onClick={addReceipt}>Save Receipt</Button>
+                        {loggedIn()}
                     </MarginDiv>
                 </TextContainer>
 

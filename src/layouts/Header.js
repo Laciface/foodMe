@@ -14,16 +14,31 @@ const Header = (props) => {
         
     }
 
+    const loggedIn = ()=> {
+        if(sessionStorage.length === 0){
+            return (
+                <React.Fragment>
+                    <div><Link to='/Registration'><Button>Sign Up</Button></Link></div>
+                    <div><Link to='/Login'><Button>Login</Button></Link></div>
+                </React.Fragment>
+            );
+        } else {
+            return (
+                <React.Fragment>
+                    <div><Link to='/MyReceipt'><Button>MyProfile</Button></Link></div>
+                    <div><Link to='/'onClick={logout}><Button>Logout</Button></Link></div>
+                </React.Fragment>)
+        }
+    }
 
 	return (
             <Container>
             <Links>
+            
                 <div><Link to='/'><Button>Home Page</Button></Link></div>
                 <div><Link to='/Categories'><Button>Food Categories</Button></Link></div>
-                <div><Link to='/MyReceipt'><Button>MyReceipt</Button></Link></div>
-                <div><Link to='/Registration'><Button>Sign Up</Button></Link></div>
-                <div><Link to='/Login'><Button>Sign In</Button></Link></div>
-                <div><Link to='/'onClick={logout}><Button>Logout</Button></Link></div>
+                {loggedIn()}
+                
             </Links>
             <Logo>
                 <H1>FoodMe.</H1>
