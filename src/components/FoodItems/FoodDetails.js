@@ -47,7 +47,7 @@ const FoodDetails = (props) => {
     const token = sessionStorage.getItem('token');
 
     const addReceipt =() => {
-            axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id}, {headers: {Authorization : 'Bearer ' + token}})
+            axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id, name:details.strMeal, photo:details.strMealThumb}, {headers: {Authorization : 'Bearer ' + token}})
             //.then(alert("Receipt added to favorites"))
             if(token !== "" && token!== null){
                 alert("Receipt added to favorites")
@@ -82,13 +82,16 @@ const FoodDetails = (props) => {
                     <MarginDiv>
                         <strong>Origin:</strong> {details.strArea}
                     </MarginDiv>
+                    {details.strYoutube?
                     <MarginDiv>
-                        <Button href={details.strYoutube}>Video</Button>
-                        {/* <YoutubeModal videoId={details.strYoutube.substr(details.strYoutube.length - 11)} >
-                            <button type="button">Open Modal!</button>
-                            </YoutubeModal>*/}
+                        <YoutubeModal videoId={details.strYoutube.substr(details.strYoutube.length - 11)} >
+                            <Button type="button">Video</Button>
+                            </YoutubeModal>
                         {loggedIn()}
                     </MarginDiv>
+                    :<MarginDiv>
+                        <Button href={details.strYoutube}>Video</Button>
+                        </MarginDiv>}
                 </TextContainer>
             </SmallContainer>
         </Container>
@@ -99,6 +102,7 @@ const FoodDetails = (props) => {
 
 const MarginDiv = styled.div`
     margin-bottom:20px;
+    display: flexbox;
 `
 
 const IngredDiv = styled.div`
@@ -167,6 +171,7 @@ const TitleDiv = styled.div`
     text-decoration: none;
     letter-spacing: 10px;
     color: white;
+    font-size: 25px;
     `
 
 const Button = styled.a`
