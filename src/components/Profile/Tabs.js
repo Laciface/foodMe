@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Profile from './Profile';
 import EditProfile from './EditProfile';
+import Favorites from './Favorites';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -93,7 +94,7 @@ export default function VerticalTabs() {
       My Receipt
       </TabPanel>
       <TabPanel value={value} index={4}>
-      Favorites
+        <Favorites/>
       </TabPanel>
       <TabPanel value={value} index={5}>
       Cooked
