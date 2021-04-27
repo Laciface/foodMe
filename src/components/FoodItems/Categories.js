@@ -1,7 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios'
 import Category from './Category'
-import Navbar from '../layouts/Navbar'
 
 const  Categories = () => {
     const [data, setData] =  useState([])
@@ -11,7 +10,6 @@ const  Categories = () => {
         .then(resp => setData(resp.data.categories))
     }, []);
     
-//'https://www.themealdb.com/api/json/v1/1/categories.php'
 
     return (
         <React.Fragment>

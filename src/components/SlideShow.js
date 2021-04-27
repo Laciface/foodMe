@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
 import styled from 'styled-components';
-import Search from './Search';
+import Search from './Search/Search';
 
 const pictures = [
     {name:'https://ba2405dc7b30afe52630-7360b65eaf2d1e8c521c2d0cc5536ea2.ssl.cf1.rackcdn.com/Moroccan.jpg'},
