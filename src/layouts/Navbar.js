@@ -27,23 +27,10 @@ const Button = styled.div`
     &:hover {
         background: red;}
 `
-const Input = styled.input`
-        height: 30px;
-        width: 250px;
-`
-
-
 const HeaderSytle = styled.header`
 	background: white;
     color: black;
     text-align: center;
     padding: 10px;
 ` 
-
-const H1 = styled.h1`
-	font-weight: 800;
-    color: white;
-    text-decoration: none;
-`
-
 export default Navbar;

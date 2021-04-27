@@ -25,7 +25,7 @@ const Header = (props) => {
         } else {
             return (
                 <React.Fragment>
-                    <div><Link to='/MyReceipt'><Button>MyProfile</Button></Link></div>
+                    <div><Link to='/Tabs'><Button>MyProfile</Button></Link></div>
                     <div><Link to='/'onClick={logout}><Button>Logout</Button></Link></div>
                 </React.Fragment>)
         }
@@ -91,11 +91,4 @@ const Button = styled.div`
     &:hover {
         background: red;}
 `
-
-const H2 = styled.h1`
-	font-weight: 800;
-    color: white;
-    text-decoration: none;
-`
-
 export default Header;
