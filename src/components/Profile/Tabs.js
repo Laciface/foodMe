@@ -8,6 +8,7 @@ import Box from '@material-ui/core/Box';
 import Profile from './Profile';
 import EditProfile from './EditProfile';
 import Favorites from './Favorites';
+import styled from 'styled-components';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -77,9 +78,9 @@ export default function VerticalTabs() {
         <Tab label="Add Receipt" {...a11yProps(2)} />
         <Tab label="My Receipt" {...a11yProps(3)} />
         <Tab label="Favorites" {...a11yProps(4)} />
-        <Tab label="Cooked" {...a11yProps(5)} />
+        {/* <Tab label="Cooked" {...a11yProps(5)} />
         <Tab label="Ready to Cook" {...a11yProps(6)} />
-        <Tab label="My Fridge" {...a11yProps(7)} />
+        <Tab label="My Fridge" {...a11yProps(7)} /> */}
       </Tabs>
       <TabPanel value={value} index={0}>
         <Profile/>
@@ -97,14 +98,19 @@ export default function VerticalTabs() {
         <Favorites/>
       </TabPanel>
       <TabPanel value={value} index={5}>
-      Cooked
+        <Faded>Cooked</Faded>
       </TabPanel>
       <TabPanel value={value} index={6}>
-      Ready to Cook
+        <Faded>Ready to Cook</Faded>
       </TabPanel>
       <TabPanel value={value} index={7}>
-      My Fridge
+      <Faded>My Fridge</Faded>
       </TabPanel>
     </div>
   );
 }
+
+const Faded = styled.div`
+  color: red;
+  text-transform: bold;
+`

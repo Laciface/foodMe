@@ -16,8 +16,8 @@ export default function Favorites() {
     }, []);
 
     const deleteFavorite =(data) => {
-        axios.post('http://127.0.0.1:8000/api/favorite/delete', {food_id : data.id}, config)
         console.log(data)  
+        axios.post('http://127.0.0.1:8000/api/favorite/delete', {food_id : data.id}, config)
     }
 
     return (
