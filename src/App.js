@@ -14,6 +14,7 @@ import Registration from './components/Authentication/Registration';
 import Login from './components/Authentication/Login'
 import SlideShow from './components/SlideShow';
 import Tabs from './components/Profile/Tabs'
+import RightClick from './components/RightClick';
 /* import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic' */
 
@@ -48,6 +49,7 @@ function App(){
           <Route exact path={'/MyReceipt'}><MyReceipt/></Route>
           <Route exact path={'/SlideShow'}><SlideShow/></Route>
           <Route exact path={'/Tabs'}><Tabs/></Route>
+          <Route exact path={'/RightClick'}><RightClick/></Route>
           <Footer/>
           </div>
         </div>
