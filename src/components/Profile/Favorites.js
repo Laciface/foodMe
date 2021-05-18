@@ -4,21 +4,25 @@ import '../../App.css';
 import axios from 'axios';
 import FoodItem from '../FoodItems/FoodItem'
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
-import { RiDeleteBin5Line} from 'react-icons/ri';
 
 export default function Favorites() {
     const [favorites, setFavorites] = useState([]);
     let config = { headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }}
+    const [supervisor, setSupervisor] = useState();
 
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/favorite/list', config)
         .then(resp => setFavorites(resp.data))
-    }, []);
+    }, [supervisor]);
 
-    const deleteFavorite =(data) => {
+    const clearFavorites = () =>{
+        console.log('cleared')
+        setSupervisor([]);
+    }
+    /* const deleteFavorite =(data) => {
         console.log(data)  
         axios.post('http://127.0.0.1:8000/api/favorite/delete', {food_id : data.id}, config)
-    }
+    } */
 
     return (
         <React.Fragment>
@@ -33,16 +37,17 @@ export default function Favorites() {
                             name={favorite.food_name} 
                             picture={favorite.food_photo} 
                             key={favorite.food_id}
-                            id={favorite.food_id}/>
+                            id={favorite.food_id}
+                            deleted={() => {clearFavorites()} }/>
                     </ContextMenuTrigger>
 
-                    <ContextMenu id="favorite">
+                    {/* <ContextMenu id="favorite">
                         <Button data={{ id: favorite.food_id}} onClick={deleteFavorite}>
                             <MenuItem data={{ id: favorite.food_id}} onClick={deleteFavorite}>
                                 <RiDeleteBin5Line data={favorite.food_id} onClick={deleteFavorite} size={25}/> delete
                             </MenuItem>
                         </Button>
-                    </ContextMenu>
+                    </ContextMenu> */}
                 </React.Fragment>
                 )}
             </ReceiptList>

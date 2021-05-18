@@ -22,7 +22,7 @@ const FoodDetails = (props) => {
         if(sessionStorage.length !== 0){
             return (
                 <React.Fragment>
-                    <Button onClick={addReceipt}>Save Receipt</Button>
+                    <Button onClick={addReceipt}>Save Recipe</Button>
                 </React.Fragment>
             );
         }
@@ -50,7 +50,7 @@ const FoodDetails = (props) => {
             axios.post('http://127.0.0.1:8000/api/favorite', {food_id : id, name:details.strMeal, photo:details.strMealThumb}, {headers: {Authorization : 'Bearer ' + token}})
             //.then(alert("Receipt added to favorites"))
             if(token !== "" && token!== null){
-                alert("Receipt added to favorites")
+                alert("Recipe added to favorites")
             } else {
                 alert('You are not logged in')
             }

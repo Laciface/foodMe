@@ -9,6 +9,7 @@ import Profile from './Profile';
 import EditProfile from './EditProfile';
 import Favorites from './Favorites';
 import styled from 'styled-components';
+import {useHistory} from 'react-router-dom'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -58,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
 export default function VerticalTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const history = useHistory();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -75,13 +77,15 @@ export default function VerticalTabs() {
       >
         <Tab label="Profile" {...a11yProps(0)} />
         <Tab label="Edit Profile" {...a11yProps(1)} />
-        <Tab label="Add Receipt" {...a11yProps(2)} />
-        <Tab label="My Receipt" {...a11yProps(3)} />
-        <Tab label="Favorites" {...a11yProps(4)} />
+        <Tab label="Add Recipe" {...a11yProps(2)} />
+        <Tab label="My Recipes" {...a11yProps(3)} />
+        <Tab label="Favorites" {...a11yProps(4)} /* onClick={()=>{
+                    history.push(`/Tabs/Favorites`)
+                }} *//>
         {/* <Tab label="Cooked" {...a11yProps(5)} />
         <Tab label="Ready to Cook" {...a11yProps(6)} />
         <Tab label="My Fridge" {...a11yProps(7)} /> */}
-      </Tabs>
+          </Tabs>
       <TabPanel value={value} index={0}>
         <Profile/>
       </TabPanel>
@@ -89,10 +93,10 @@ export default function VerticalTabs() {
         <EditProfile/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-      Add Receipt
+      Add Recipe
       </TabPanel>
       <TabPanel value={value} index={3}>
-      My Receipt
+      My Recipes
       </TabPanel>
       <TabPanel value={value} index={4}>
         <Favorites/>
