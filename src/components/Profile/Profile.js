@@ -17,31 +17,53 @@ export default function Profile() {
 
     return (
         <React.Fragment>
-            <div>
-                <PHOTO>
-                    <IMG src={"http://localhost:8000/storage/images/" + profileInfo.picture} alt='profilePic'></IMG>
-                </PHOTO>
-            </div>
-            <div>
-                <Param>
-                    <p>date of join: {profileInfo.created_at ? splitDate():''}</p>
-                    <p>nationality: {profileInfo.country}</p>
-                    <p>name: {profileInfo.name}</p>
-                    <p>introduction: {profileInfo.introduction}</p>
-                </Param>
-            </div>
+            <PROFILE>
+                <div>
+                    <PHOTO>
+                        <IMG src={"http://localhost:8000/storage/images/" + profileInfo.picture} alt='profilePic'></IMG>
+                    </PHOTO>
+                </div>
+                <div>
+                    <DETAILS>
+                        <TITLE>Name:</TITLE>
+                        <INFO>{profileInfo.name}</INFO>
+                        <TITLE>Nationality: </TITLE>
+                        <INFO>{profileInfo.country}</INFO>
+                        <TITLE>Introduction: </TITLE>
+                        <INTRO>{profileInfo.introduction}</INTRO>
+                        <TITLE>Date of join: </TITLE>
+                        <INFO>{profileInfo.created_at ? splitDate():''}</INFO>
+                    </DETAILS>
+                </div>
+            </PROFILE>
         </React.Fragment>
     )
 }
 
+const INFO = styled.p`
+    font-size:20px;
+`
+
+const INTRO = styled.div`
+    inline-size: 400px;
+    overflow-wrap: break-word;
+    font-size:19px;
+`
+
+const TITLE = styled.p`
+    font-family:'Gloria Hallelujah', cursive;
+    font-size: 25px;
+`
+
 const PHOTO = styled.div`
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     
 ` 
 
 const IMG = styled.img`
-    margin-left: 650px;
+    margin-left: 150px;
     display: block;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -49,7 +71,12 @@ const IMG = styled.img`
     width: 300px;
 `
 
-const Param = styled.p`
-    margin-left: 650px;
+const DETAILS = styled.p`
+    margin-left: 90px;
     font-size: 15px;
+    text-align: left;
+`
+const PROFILE = styled.div`
+    display: flex;
+    flex-direction: row;
 `
