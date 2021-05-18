@@ -3,24 +3,31 @@ import styled from 'styled-components'
 import axios from 'axios';
 
 export default function Profile() {
-    const [profileImage, setProfileImage] =  useState([]);
+    const [profileInfo, setProfileInfo] =  useState([]);
     
     useEffect(() => {
 		axios
             .get(`http://127.0.0.1:8000/api/profilePicture/` + sessionStorage.getItem('userId'))
-            .then(resp => setProfileImage(resp.data));
+            .then(resp => setProfileInfo(resp.data[0]));
     }, []);
+
+    const splitDate = () =>{
+        return profileInfo.created_at.substring(0, 10);
+    }
 
     return (
         <React.Fragment>
             <div>
                 <PHOTO>
-                    <IMG src={"http://localhost:8000/storage/images/" + profileImage} alt='profilePic'></IMG>
+                    <IMG src={"http://localhost:8000/storage/images/" + profileInfo.picture} alt='profilePic'></IMG>
                 </PHOTO>
             </div>
             <div>
                 <Param>
-                    7 tried receipt, 2 own receipt, 5 favorites
+                    <p>date of join: {profileInfo.created_at ? splitDate():''}</p>
+                    <p>nationality: {profileInfo.country}</p>
+                    <p>name: {profileInfo.name}</p>
+                    <p>introduction: {profileInfo.introduction}</p>
                 </Param>
             </div>
         </React.Fragment>
