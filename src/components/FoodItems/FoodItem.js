@@ -1,18 +1,65 @@
-import React from 'react'
+import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom';
+import axios from 'axios';
+import { RiDeleteBin5Line} from 'react-icons/ri';
+
 
 
 function FoodItem(props) {
+    let config = { headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }}
+    
+    const [canSeeButton, setCanSeeButton] = useState(false); 
+    
+    const deleteFavorite =() => {
+        console.log(props.id);
+        axios.post('http://127.0.0.1:8000/api/favorite/delete', {food_id : props.id}, config)
+        props.deleted();
+    }
+
+    const CheckURL =() => {
+        const location = useLocation();
+        console.log(location.pathname);
+        if(location.pathname === '/Tabs'){
+            return (
+                <React.Fragment>
+                {canSeeButton?
+                <Delete onClick={deleteFavorite}>
+                    <RiDeleteBin5Line/> delete
+                </Delete>:''}
+                </React.Fragment>
+            )
+        }
+    }
+    
     return (
+        <CardLink 
+                    onMouseEnter={() => setCanSeeButton(true)}
+                    onMouseLeave={() => setCanSeeButton(false)}>
         <Link to={`/FoodDetails/${props.id}`}>
-            <CardLink>
                 <ImgDec src={props.picture} alt="pic"/>
-                <Name>{props.name}</Name>
-            </CardLink>
         </Link>
+                <Name>{props.name}</Name>
+                {CheckURL()}
+            </CardLink>
     )
 }
+
+const Delete = styled.button`
+    text-decoration: none;
+    font-family: 'sans-serif';
+    font-size: 1rem;
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 10px;
+    margin: 5px;
+    cursor: pointer;
+    background: lightblue;
+    color: #fff;
+    &:hover {
+        background: red;}
+`
 
 const Name = styled.p`
     font-family:'Gloria Hallelujah', cursive;
