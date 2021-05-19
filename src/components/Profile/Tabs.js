@@ -8,6 +8,7 @@ import Box from '@material-ui/core/Box';
 import Profile from './Profile';
 import EditProfile from './EditProfile';
 import Favorites from './Favorites';
+import AddRecipe from './AddRecipe';
 import styled from 'styled-components';
 import {useHistory} from 'react-router-dom'
 
@@ -93,7 +94,7 @@ export default function VerticalTabs() {
         <EditProfile/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-      Add Recipe
+      <AddRecipe/>
       </TabPanel>
       <TabPanel value={value} index={3}>
       My Recipes
