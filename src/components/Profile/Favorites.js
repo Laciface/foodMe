@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import '../../App.css';
 import axios from 'axios';
 import FoodItem from '../FoodItems/FoodItem'
-import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
+import {ContextMenuTrigger } from "react-contextmenu";
 
 export default function Favorites() {
     const [favorites, setFavorites] = useState([]);
@@ -16,19 +16,13 @@ export default function Favorites() {
     }, [supervisor]);
 
     const clearFavorites = () =>{
-        console.log('cleared')
         setSupervisor([]);
     }
-    /* const deleteFavorite =(data) => {
-        console.log(data)  
-        axios.post('http://127.0.0.1:8000/api/favorite/delete', {food_id : data.id}, config)
-    } */
 
     return (
         <React.Fragment>
         <Container>
             <Title>Favorites</Title>
-            {/* {favorites.food_id? */}
             <ReceiptList>
                 {favorites.map(favorite =>
                 <React.Fragment>
@@ -40,30 +34,21 @@ export default function Favorites() {
                             id={favorite.food_id}
                             deleted={() => {clearFavorites()} }/>
                     </ContextMenuTrigger>
-
-                    {/* <ContextMenu id="favorite">
-                        <Button data={{ id: favorite.food_id}} onClick={deleteFavorite}>
-                            <MenuItem data={{ id: favorite.food_id}} onClick={deleteFavorite}>
-                                <RiDeleteBin5Line data={favorite.food_id} onClick={deleteFavorite} size={25}/> delete
-                            </MenuItem>
-                        </Button>
-                    </ContextMenu> */}
                 </React.Fragment>
                 )}
             </ReceiptList>
-            {/* <ReceiptList>aha</ReceiptList>} */}
         </Container>
         </React.Fragment>
     )
 }
 
-const Button = styled.button`
-    border-radius: 10%;
-    background-color: red;
-    border-color: black;
-    border-style: solid;
-    font-family:'Gloria Hallelujah', cursive;
-`
+// const Button = styled.button`
+//     border-radius: 10%;
+//     background-color: red;
+//     border-color: black;
+//     border-style: solid;
+//     font-family:'Gloria Hallelujah', cursive;
+// `
 
 const Container = styled.div`
     position: absolute;

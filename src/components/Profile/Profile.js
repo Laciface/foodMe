@@ -7,7 +7,7 @@ export default function Profile() {
     
     useEffect(() => {
 		axios
-            .get(`http://127.0.0.1:8000/api/profilePicture/` + sessionStorage.getItem('userId'))
+            .get(`http://127.0.0.1:8000/api/profileData/` + sessionStorage.getItem('userId'))
             .then(resp => setProfileInfo(resp.data[0]));
     }, []);
 

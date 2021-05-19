@@ -1,41 +1,28 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
 import axios from 'axios';
-import ImageUploader from 'react-images-upload';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
-
-/* constructor(props) {
-  super(props);
-    this.state = { pictures: [] };
-    this.onDrop = this.onDrop.bind(this);
-} */
-
-
 
 export default function FormPropsTextFields() {
-  const [pictures, setPictures] =  useState();
   const [picture, setPicture] = useState('');
 	const [country, setCountry] = useState('');
   const [introduction, setIntroduction] = useState('');
   let config = { headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }}
-  const classes = useStyles();
   
   const data = new FormData();
   data.append('picture', picture);
   data.append('country', country);
   data.append('introduction', introduction);
+
+  // const [profileInfo, setProfileInfo] =  useState([]);
+  // const placeholder = 'Face';
   
+  // useEffect(() => {
+	// 	axios
+  //       .get(`http://127.0.0.1:8000/api/profileData/` + sessionStorage.getItem('userId'))
+  //       .then(resp => setProfileInfo(resp.data[0].country))
+  //   }, []);
+
   const editProfile = (event) => {
     event.preventDefault();
     axios.post("http://127.0.0.1:8000/api/edit/profile", data , config)
@@ -46,9 +33,7 @@ export default function FormPropsTextFields() {
     }
     
     const onDrop = (event) => {
-      console.log(event.target.files[0]);
       setPicture(event.target.files[0]);
-      console.log(picture);
       }
 
 	const handleCountryChange = (event) => {
@@ -69,10 +54,10 @@ export default function FormPropsTextFields() {
         <input type="file" onChange={onDrop}/>
 
         <Label>Country</Label>
-        <TextField id="outlined-search" type="search" variant="outlined" onChange={handleCountryChange}/>
+        <TextField id="outlined-search" type="normal" variant="outlined" onChange={handleCountryChange}/>
         
         <Label>Introduction</Label>
-        <textarea style={{height: '300px', width: '500px'}} onChange={handleIntroductionChange}/>
+        <textarea style={{height: '300px', width: '500px'}}  onChange={handleIntroductionChange}></textarea>
         <Button type="submit" onClick={editProfile}>Edit</Button>
       </Container>
     </form>

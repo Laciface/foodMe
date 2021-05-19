@@ -12,7 +12,6 @@ function FoodItem(props) {
     const [canSeeButton, setCanSeeButton] = useState(false); 
     
     const deleteFavorite =() => {
-        console.log(props.id);
         axios.post('http://127.0.0.1:8000/api/favorite/delete', {food_id : props.id}, config)
         props.deleted();
     }
@@ -64,6 +63,8 @@ const Delete = styled.button`
 const Name = styled.p`
     font-family:'Gloria Hallelujah', cursive;
     font-size: 20px;
+    inline-size: 400px;
+    overflow-wrap: break-word;
 `
 
 const ImgDec =  styled.img`
