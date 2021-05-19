@@ -39,7 +39,7 @@ const FoodDetails = (props) => {
     const fillMeasures = () => { 
         const MeasureList = [];
         Object.keys(details).forEach(key => {
-        if(key.includes("strMeasure") && details[key] != null && details[key] !== ""){
+        if(key.includes("strMeasure") && details[key] != null && details[key] !== "" && details[key] !== " "){
             MeasureList.push(details[key]);
         }});
     return MeasureList;}
@@ -90,7 +90,8 @@ const FoodDetails = (props) => {
                         {loggedIn()}
                     </MarginDiv>
                     :<MarginDiv>
-                        <Button href={details.strYoutube}>Video</Button>
+                        <Button onClick={()=> {alert('This recipe has no video')}}>Video</Button>
+                        {loggedIn()}
                         </MarginDiv>}
                 </TextContainer>
             </SmallContainer>
